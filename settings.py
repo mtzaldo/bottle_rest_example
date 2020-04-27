@@ -1,0 +1,1 @@
+TYPECODE_URI = 'https://jsonplaceholder.typicode.com'
