@@ -1,2 +1,2 @@
 # bottle_rest_example
-REST API with pythong, bottle and unit tests
+REST API with python, bottle and unit tests
