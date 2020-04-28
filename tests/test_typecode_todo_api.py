@@ -28,7 +28,6 @@ class TestTypeCodeTodoApiClient(TestCase):
     
     response = Response()
     response.status_code = 404
-    response.json = MagicMock(return_value = expected_result)
     requests.get = MagicMock(return_value = response)
     
     api = TypicodeTodoApiClient('http://fake.url')
