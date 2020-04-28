@@ -1,7 +1,7 @@
 from unittest import TestCase
 from unittest.mock import patch, MagicMock
 
-import requests
+import requests, json
 from requests import Response
 
 from apis.typicode.todo_api import TypicodeTodoApiClient
@@ -9,8 +9,8 @@ from apis.typicode.todo_api import TypicodeTodoApiClient
 class TestTypeCodeTodoApiClient(TestCase):
   
   def test_get_by_id_returns_a_valid_todo(self):
-    
-    expected_result = {'userId': 1, 'id': 1, 'title': 'delectus aut autem', 'completed': False}
+    json_text= '{"userId": 1, "id": 1, "title": "delectus aut autem", "completed": false}'
+    expected_result = json.loads(json_text)
     
     response = Response()
     response.status_code = 200
