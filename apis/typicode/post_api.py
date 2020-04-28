@@ -1,6 +1,6 @@
 import requests
 
-class TypeCodePostApiClient:
+class TypicodePostApiClient:
     
     PATH = 'posts'
     

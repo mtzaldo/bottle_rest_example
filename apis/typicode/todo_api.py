@@ -1,6 +1,6 @@
 import requests
 
-class TypeCodeTodoApiClient:
+class TypicodeTodoApiClient:
     
     PATH = 'todos'
     
@@ -11,11 +11,11 @@ class TypeCodeTodoApiClient:
         uri = f'{self.base_uri}/{self.PATH}'
         res = requests.get(uri)
         
-        return res.text
+        return res.text if res.status_code == 200 else []
     
     def get(self, id):
         uri = f'{self.base_uri}/{self.PATH}/{id}'
         res = requests.get(uri)
         
-        return res.json()
+        return res.json() if res.status_code == 200 else {}
         

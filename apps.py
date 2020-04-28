@@ -5,8 +5,8 @@ from endpoints.todo_endpoints import TodoEndpoints
 from services.todo_service import TodoService
 
 from services.post_service import PostService
-from apis.typecode.todo_api import TypeCodeTodoApiClient
-from apis.typecode.post_api import TypeCodePostApiClient
+from apis.typicode.todo_api import TypicodeTodoApiClient
+from apis.typicode.post_api import TypicodePostApiClient
 
 from repositories.users_repository import UsersRepository
 from services.user_service import UserService
@@ -19,15 +19,15 @@ class TodoApp(Bottle):
     
     def __init__(self):
         super().__init__()
-        api = TypeCodeTodoApiClient(settings.TYPECODE_URI)
+        api = TypicodeTodoApiClient(settings.TYPECODE_URI)
         service = TodoService(api)
-        endpoints = TodoEndpoints(self, service)
+        endpoints = TodoEndpoints(self, response, service)
                 
 class PostApp(Bottle):
     
     def __init__(self):
         super().__init__()
-        api = TypeCodePostApiClient(settings.TYPECODE_URI)
+        api = TypicodePostApiClient(settings.TYPECODE_URI)
         service = PostService(api)
         endpoints = PostEndpoints(self, service)
 
