@@ -10,10 +10,14 @@ class UserEndpoints:
         self.app.route('/login', ['POST'], self.login)
         
     def login(self):
-        username = self.request.json.get('username')
-        password = self.request.json.get('password')
+        username = self.request.json.get('username', '')
+        password = self.request.json.get('password', '')
         
-        success = self.service.login(username, password)
+        success = False
+        
+        if username and password:
+          success = self.service.login(username, password)
+        
         status_code = 200 if success else 404
         
         self.response.status = status_code
