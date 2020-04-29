@@ -1,8 +1,8 @@
 from unittest import TestCase
 from unittest.mock import patch, MagicMock
+from requests import Response
 
 import requests, json
-from requests import Response
 
 from apis.typicode.todo_api import TypicodeTodoApiClient
 
