@@ -20,7 +20,8 @@ class TodoApp(Bottle):
     def __init__(self):
         super().__init__()
         api = TypicodeTodoApiClient(settings.TYPECODE_URI)
-        service = TodoService(api)
+        repo = UsersRepository(db)
+        service = TodoService(api, repo)
         endpoints = TodoEndpoints(self, response, service)
                 
 class PostApp(Bottle):

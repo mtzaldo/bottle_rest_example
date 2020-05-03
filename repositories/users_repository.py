@@ -5,11 +5,22 @@ class UsersRepository:
         
     def get(self, username, password):
         
-        res = list(
-            	filter(
-                    lambda u: u.get('username') == username and u.get('password') == password, 
-                    self.db.users
-                )
-        )
+        iter = filter(
+                lambda u: u.get('username') == username and u.get('password') == password, 
+                self.db.users
+            )
+            
+        user = next((u for u in iter), None)
         
-        return res[0] if len(res) else None
+        return user
+        
+    def get_by_id(self, id):
+        
+        iter = filter(
+                lambda u: u.get('id', 0) == id, 
+                self.db.users
+            )
+        
+        user = next((u for u in iter), None)
+        
+        return user
