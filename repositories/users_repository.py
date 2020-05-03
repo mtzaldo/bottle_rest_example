@@ -12,7 +12,7 @@ class UsersRepository:
             
         user = next((u for u in iter), None)
         
-        return user
+        return user.copy()
         
     def get_by_id(self, id):
         
@@ -23,4 +23,4 @@ class UsersRepository:
         
         user = next((u for u in iter), None)
         
-        return user
+        return user.copy()
