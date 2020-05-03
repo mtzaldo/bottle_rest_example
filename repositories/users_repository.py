@@ -10,7 +10,7 @@ class UsersRepository:
                 self.db.users
             )
             
-        user = next((u for u in iter), None)
+        user = next((u for u in iter), {})
         
         return user.copy()
         
@@ -21,6 +21,6 @@ class UsersRepository:
                 self.db.users
             )
         
-        user = next((u for u in iter), None)
+        user = next((u for u in iter), {})
         
         return user.copy()

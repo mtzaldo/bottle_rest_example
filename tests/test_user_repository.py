@@ -13,7 +13,7 @@ class TestUserRepository(TestCase):
         username = 'im_not_a_username'
         password = 'password'
         
-        expected_result = None
+        expected_result = {}
         
         result = self.repo.get(username, password)
         
@@ -23,7 +23,7 @@ class TestUserRepository(TestCase):
         username = 'user1'
         password = 'thepassword'
         
-        expected_result = None
+        expected_result = {}
         
         result = self.repo.get(username, password)
         

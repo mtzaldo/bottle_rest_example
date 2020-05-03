@@ -6,7 +6,7 @@ import requests, json
 
 from apis.typicode.todo_api import TypicodeTodoApiClient
 
-class TestTypeCodeTodoApiClient(TestCase):
+class TestTypiCodeTodoApiClient(TestCase):
   
   def test_get_by_id_returns_a_valid_todo(self):
     json_text= '{"userId": 1, "id": 1, "title": "delectus aut autem", "completed": false}'
