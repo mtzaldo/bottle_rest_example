@@ -5,4 +5,4 @@ Running instructions:
 
 * Create and load a virtual environment
 * To run the rest api: `python startup.py`
-* To run the tests: `python -m unittest tests`
+* To run the tests: `python -m unittest`
