@@ -1,21 +1,11 @@
 from bottle import Bottle, run, request, response
 
-from endpoints.post_endpoints import PostEndpoints
-from endpoints.todo_endpoints import TodoEndpoints
-from services.todo_service import TodoService
+from services import TodoService, PostService, UserService
+from endpoints import TodoEndpoints, PostEndpoints, UserEndpoints
+from repositories import UsersRepository, WordsRepository
+from apis.typicode import TypicodeTodoApiClient, TypicodePostApiClient
 
-from services.post_service import PostService
-from apis.typicode.todo_api import TypicodeTodoApiClient
-from apis.typicode.post_api import TypicodePostApiClient
-
-from repositories.users_repository import UsersRepository
-from services.user_service import UserService
-from endpoints.user_endpoints import UserEndpoints
-
-from repositories.words_repository import WordsRepository
-
-from db import db
-import settings
+import db, settings
 
 class TodoApp(Bottle):
     
@@ -23,7 +13,7 @@ class TodoApp(Bottle):
         super().__init__()
         api = TypicodeTodoApiClient(settings.TYPECODE_URI)
         users_repo = UsersRepository(db)
-        #repository handling the open/close itself
+        #repository handling the db open/close itself
         words_repo = WordsRepository(settings.SQLITE_DB)
         service = TodoService(api, users_repo, words_repo)
         endpoints = TodoEndpoints(self, response, service)

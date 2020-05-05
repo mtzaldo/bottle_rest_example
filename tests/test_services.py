@@ -1,7 +1,7 @@
 from unittest import TestCase
 from unittest.mock import MagicMock
 
-from services.todo_service import TodoService
+from services import TodoService
 
 import json
 

@@ -39,3 +39,22 @@ class TodoService:
         new_title = reduce(lambda t, w: f'{t} {get_replacement(w)}', title_splitted, '')
         
         return new_title.strip()
+        
+class PostService:
+    
+    def __init__(self, api):
+        self.api = api
+        
+    def all(self):
+        return self.api.all()
+    
+    def get(self, id):
+        return self.api.get(id)
+        
+class UserService:
+    def __init__(self, repo):
+        self.repo = repo
+        
+    
+    def login(self, username, password):
+        return True if self.repo.get(username, password) else False
