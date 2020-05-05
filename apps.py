@@ -12,7 +12,9 @@ from repositories.users_repository import UsersRepository
 from services.user_service import UserService
 from endpoints.user_endpoints import UserEndpoints
 
-import db
+from repositories.words_repository import WordsRepository
+
+from db import db
 import settings
 
 class TodoApp(Bottle):
@@ -20,8 +22,10 @@ class TodoApp(Bottle):
     def __init__(self):
         super().__init__()
         api = TypicodeTodoApiClient(settings.TYPECODE_URI)
-        repo = UsersRepository(db)
-        service = TodoService(api, repo)
+        users_repo = UsersRepository(db)
+        #repository handling the open/close itself
+        words_repo = WordsRepository(settings.SQLITE_DB)
+        service = TodoService(api, users_repo, words_repo)
         endpoints = TodoEndpoints(self, response, service)
                 
 class PostApp(Bottle):
