@@ -4,7 +4,7 @@ from requests import Response
 
 import requests, json
 
-from apis.typicode import TypicodeTodoApiClient
+from rest.apis.typicode import TypicodeTodoApiClient
 
 class TestTypiCodeTodoApiClient(TestCase):
   

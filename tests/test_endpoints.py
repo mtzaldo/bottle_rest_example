@@ -1,7 +1,7 @@
 from unittest import TestCase
 from unittest.mock import MagicMock
 
-from endpoints import TodoEndpoints, UserEndpoints
+from rest.endpoints import TodoEndpoints, UserEndpoints
 
 import json
 

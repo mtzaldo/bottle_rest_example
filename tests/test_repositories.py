@@ -1,5 +1,5 @@
 from unittest import TestCase
-from repositories import UsersRepository
+from rest.repositories import UsersRepository
 
 from tests.mocks import test_db
 
