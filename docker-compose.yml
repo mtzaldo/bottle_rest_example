@@ -8,4 +8,5 @@ services:
         ports:
             - 8080:8080
         volumes:
-            - ./rest:/usr/src/app
+            - ./rest:/usr/src/rest
+            - ./tests:/usr/src/tests

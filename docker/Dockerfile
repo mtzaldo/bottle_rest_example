@@ -1,14 +1,15 @@
 FROM python:3.8-slim-buster
 
-WORKDIR /usr/src/app
+WORKDIR /usr/src/
+
+COPY ./docker/startup.sh .
 
 COPY ./requirements.txt .
 
 RUN apt-get update && \
     apt-get -y upgrade && \
-    pip install --upgrade pip && \
-    pip install -r requirements.txt
+    chmod +x ./startup.sh
 
 ENV PYTHONUNBUFFERED=1
 
-CMD ["python", "./startup.py"]
+ENTRYPOINT [ "./startup.sh" ]
