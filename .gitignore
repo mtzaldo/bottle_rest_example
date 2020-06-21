@@ -130,3 +130,6 @@ dmypy.json
 
 #zed
 .zedstate
+
+.vscode
+.venv
